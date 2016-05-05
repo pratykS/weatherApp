@@ -1,7 +1,46 @@
-var myApp = angular.module('myApp', []);
+var myApp = angular.module('myApp', ['ngRoute']);
 
-myApp.controller('MyCtrl', function ($scope, $http) {
+myApp.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.
+    when('/dashboard', {
+            templateUrl: 'dashboard.html',
+            controller: DashboardCtrl,
+            resolve: {
+                hasSidebar: function ($rootScope) {
+                    $rootScope.hasSidebar = true;
+                    return true;
+                }
+            }
+        })
+        .when('/sidebar1', {
+            templateUrl: 'sidebarlink1.html',
+            controller: DashboardCtrl,
+            resolve: {
+                hasSidebar: function ($rootScope) {
+                    $rootScope.hasSidebar = true;
+                    return true;
+                }
+            }
+        })
+        .when('/sidebar2', {
+            templateUrl: 'sidebarlink2.html',
+            controller: DashboardCtrl,
+            resolve: {
+                hasSidebar: function ($rootScope) {
+                    $rootScope.hasSidebar = true;
+                    return true;
+                }
+            }
+        })
 
+
+
+    .otherwise({
+        redirectTo: '/dashboard'
+    });
+}]);
+
+function DashboardCtrl($scope, $http) {
     $scope.data = {
         availableOptions: [
             {
@@ -47,4 +86,11 @@ myApp.controller('MyCtrl', function ($scope, $http) {
     console.log('init city', $scope.data.selectedOption.name)
     getWeather($scope.data.selectedOption.name);
 
-})
+    $scope.divs = [{
+        color: "red"
+    }, {
+        color: "green"
+    }, {
+        color: "blue"
+    }]
+}
