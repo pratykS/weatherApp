@@ -40,7 +40,7 @@ myApp.config(['$routeProvider', function ($routeProvider) {
     });
 }]);
 
-function DashboardCtrl($scope, $http, $window) {
+function DashboardCtrl($scope, $http,$window) {
     $scope.data = {
         availableOptions: [
             {
@@ -87,36 +87,16 @@ function DashboardCtrl($scope, $http, $window) {
     getWeather($scope.data.selectedOption.name);
 
     $scope.divs = [];
-    console.log($window.innerHeight * $window.innerWidth, $window.innerHeight, $window.innerWidth)
-    console.log(Math.round(($window.innerHeight / 40) * ($window.innerWidth / 40)))
-    for (var i = 100; i < Math.round(($window.innerHeight / 40) * ($window.innerWidth / 40)); i++) {
-        $scope.divs.push({
-            color: "#DE0" + i
+console.log($window.innerHeight*$window.innerWidth,$window.innerHeight,$window.innerWidth)
+	console.log(Math.round(($window.innerHeight/40) * ($window.innerWidth/40)))
+    for (var i = 100; i < 412; i++) {
+       $scope.divs.push({
+            color: "#DE0"+i
         })
     }
 
     console.log($scope.divs)
 
-    $scope.tableData = [{
-        "name": "abc",
-        id: 1,
-        high: 100,
-        low: 0
-        }, {
-        "name": "abb",
-        id: 2,
-        high: 150,
-        low: 0
-        }, {
-        "name": "bbc",
-        id: 3,
-        high: 200,
-        low: 5
-        }]
-    $scope.reverse = true;
-    $scope.order = function (predicate) {
-        $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
-        $scope.predicate = predicate;
-    };
+	$scope.tableData = {"resources": [{"name": "abc", id:1, high:100, low:0}, {"name": "abb", id:2, high:150, low:0}, {"name": "bbc", id:3, high:200, low:5}]}
 
 }

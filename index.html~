@@ -26,7 +26,7 @@
 
 </head>
 
-<body ng-app="myApp" onload="annoyingEffect(0)">
+<body ng-app="myApp">
     <div id="wrapper">
         <div ng-include="'header.html'" id="header"></div>
         <div id="page-content-wrapper" style="top:50px;">
@@ -50,31 +50,19 @@
 
     <script type="text/ng-template" id="sidebarlink2.html">
         <table class="table">
-            <tr>
-                <th>
-                    <button ng-click="order('name')">Name</button>
-                    <span class="sortorder" ng-show="predicate === 'name'" ng-class="{reverse:reverse}"></span>
-                </th>
-                <th>
-                    <button ng-click="order('id')">ID</button>
-                    <span class="sortorder" ng-show="predicate === 'phone'" ng-class="{reverse:reverse}"></span>
-                </th>
-                <th>
-                    <button ng-click="order('high')">High</button>
-                    <span class="sortorder" ng-show="predicate === 'age'" ng-class="{reverse:reverse}"></span>
-                </th>
-                <th>
-                    <button ng-click="order('low')">Low</button>
-                    <span class="sortorder" ng-show="predicate === 'age'" ng-class="{reverse:reverse}"></span>
-                </th>
-            </tr>
-            <tr ng-repeat="data in tableData | orderBy:predicate:reverse">
-                <td>{{data.name}}</td>
-                <td>{{data.id}}</td>
-                <td>{{data.high}}</td>
-                <td>{{data.low}}</td>
-            </tr>
-        </table>
+    <tr>
+        <th>Name</th>
+        <th>Id</th>
+        <th>High</th>
+	<th>Low</th>
+    </tr>
+    <tr ng-repeat="resource in tableData.resources">
+        <td>{{resource.name}}</td>
+        <td>{{resource.id}}</td>
+        <td>{{resource.high}}</td>
+<td>{{resource.low}}</td>
+    </tr>
+</table>
     </script>
 
 
@@ -128,7 +116,7 @@
         </div>
     </script>
     <script type="text/ng-template" id="footer.html">
-        <div class="container-fluid" style="position: fixed;bottom: 0;width: 100%;height:50px;" id="customid">
+        <div class="container-fluid" style="position: fixed;bottom: 0;background: gray;width: 100%;height:50px;">
             @author - Pratik
         </div>
     </script>
@@ -152,18 +140,6 @@
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
         });
-    </script>
-
-    <!--foooter color change-->
-    <script>
-        colors = new Array('white', 'blue', 'green', 'yellow');
-
-        function annoyingEffect(tic) {
-            tic %= colors.length;
-            //document.bgColor = colors[tic];
-            document.getElementById('customid').style.background = colors[tic];
-            setTimeout("annoyingEffect(" + (tic + 1) + ")", 2000);
-        }
     </script>
 
 </body>
