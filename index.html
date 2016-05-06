@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <title>Weather App</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -26,7 +26,7 @@
 
 </head>
 
-<body ng-app="myApp" onload="annoyingEffect(0)">
+<body ng-app="myApp" onload="footColorChange(0)">
     <div id="wrapper">
         <div ng-include="'header.html'" id="header"></div>
         <div id="page-content-wrapper" style="top:50px;">
@@ -158,11 +158,11 @@
     <script>
         colors = new Array('white', 'blue', 'green', 'yellow');
 
-        function annoyingEffect(tic) {
+        function footColorChange(tic) {
             tic %= colors.length;
             //document.bgColor = colors[tic];
             document.getElementById('customid').style.background = colors[tic];
-            setTimeout("annoyingEffect(" + (tic + 1) + ")", 2000);
+            setTimeout("footColorChange(" + (tic + 1) + ")", 2000);
         }
     </script>
 
