@@ -3,7 +3,7 @@ var myApp = angular.module('myApp', ['ngRoute']);
 myApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.
     when('/dashboard', {
-            templateUrl: 'dashboard.html',
+            templateUrl: './html/dashboard.html',
             controller: DashboardCtrl,
             resolve: {
                 hasSidebar: function ($rootScope) {
@@ -13,7 +13,7 @@ myApp.config(['$routeProvider', function ($routeProvider) {
             }
         })
         .when('/sidebar1', {
-            templateUrl: 'sidebarlink1.html',
+            templateUrl: './html/menu1.html',
             controller: DashboardCtrl,
             resolve: {
                 hasSidebar: function ($rootScope) {
@@ -23,7 +23,7 @@ myApp.config(['$routeProvider', function ($routeProvider) {
             }
         })
         .when('/sidebar2', {
-            templateUrl: 'sidebarlink2.html',
+            templateUrl: './html/menu2.html',
             controller: DashboardCtrl,
             resolve: {
                 hasSidebar: function ($rootScope) {

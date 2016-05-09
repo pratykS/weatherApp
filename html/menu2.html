@@ -1,0 +1,26 @@
+<table class="table">
+    <tr>
+        <th>
+            <button ng-click="order('name')">Name</button>
+            <span class="sortorder" ng-show="predicate === 'name'" ng-class="{reverse:reverse}"></span>
+        </th>
+        <th>
+            <button ng-click="order('id')">ID</button>
+            <span class="sortorder" ng-show="predicate === 'phone'" ng-class="{reverse:reverse}"></span>
+        </th>
+        <th>
+            <button ng-click="order('high')">High</button>
+            <span class="sortorder" ng-show="predicate === 'age'" ng-class="{reverse:reverse}"></span>
+        </th>
+        <th>
+            <button ng-click="order('low')">Low</button>
+            <span class="sortorder" ng-show="predicate === 'age'" ng-class="{reverse:reverse}"></span>
+        </th>
+    </tr>
+    <tr ng-repeat="data in tableData | orderBy:predicate:reverse">
+        <td>{{data.name}}</td>
+        <td>{{data.id}}</td>
+        <td>{{data.high}}</td>
+        <td>{{data.low}}</td>
+    </tr>
+</table>

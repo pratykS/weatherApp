@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-4 col-md-offset-4">
+            <h1 style="border:1px solid gray;text-align:center;padding:5px 10px;">Weather</h1>
+            <!-- Single button -->
+            <div class="row" style="padding:0 15px">
+                <select class="btn btn-default dropdown-toggle" name="mySelect" id="mySelect" ng-options="option.name for option in data.availableOptions track by option.id" ng-model="data.selectedOption" ng-change="getCityName(data.selectedOption.name)"></select>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Wind Speed</label>
+                    {{name.speed}}
+                </div>
+                <div class="col-md-6">
+                    <label>Wind Direction</label>
+                    {{name.deg}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
